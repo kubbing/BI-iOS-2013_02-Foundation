@@ -43,7 +43,12 @@
      Array
      */
     
-    NSArray *array = @[ string1, string2 ];
+    NSMutableArray *array = [@[ string1, string2 ] mutableCopy];
+//    NSMutableArray *mutableArray = [array mutableCopy];
+//    NSMutableArray *mutableArray
+//    = [NSMutableArray arrayWithArray:array];
+    
+    [array addObject:@"new object"];
 
     CGFloat offset = 8;
     for (NSString *str in array) {
