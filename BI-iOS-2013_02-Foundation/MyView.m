@@ -105,6 +105,8 @@
 
 - (void)loadImageAtURL:(NSURL *)url
 {
+    NSAssert(![[NSThread currentThread] isMainThread], @"this has to be called on a background thread");
+    
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data
                                       scale:1.0];
@@ -116,7 +118,7 @@
 
 - (void)setImage:(UIImage *)image
 {
-    NSAssert([[NSThread currentThread] isMainThread], @"this has to be called in main thread");
+    NSAssert([[NSThread currentThread] isMainThread], @"this has to be called on the main thread");
     
     self.imageView.image = image;
 }
