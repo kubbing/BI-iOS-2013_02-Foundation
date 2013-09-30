@@ -36,7 +36,6 @@
     NSString *string1 = @"prvni object";
     NSArray *array = @[
                        string1,
-                       @"dalsi object",
                        @"jeste jeden"];
     
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:array];
@@ -59,8 +58,7 @@
      */
     
     NSDictionary *dictionary
-    = @{@"prvni" : @"1. hodnota",
-        @"druhy" : @"2. hodnota",
+    = @{
         @"treti" : @"dalsi"
         };
     NSMutableDictionary *mutableDict = [dictionary mutableCopy];
@@ -85,7 +83,18 @@
      */
     
     NSURL *url = [NSURL URLWithString:@"http://spinach.hippotaps.com/spinach.jpg"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
     
+    UIImage *image = [UIImage imageWithData:data scale:1.0]; // [UIScreen mainScreen].scale
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:
+    CGRectMake(0,
+               offset,
+               CGRectGetWidth(self.bounds),
+               CGRectGetWidth(self.bounds))];
+    imageView.image = image;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview:imageView];
 }
 
 /*
