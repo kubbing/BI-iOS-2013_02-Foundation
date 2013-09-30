@@ -15,9 +15,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor greenColor];
+        [self setup];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [self setup];
+}
+
+- (void)setup
+{
+    self.backgroundColor = [UIColor greenColor];
 }
 
 /*
