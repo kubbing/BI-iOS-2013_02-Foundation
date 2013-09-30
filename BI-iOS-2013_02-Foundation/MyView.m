@@ -8,6 +8,12 @@
 
 #import "MyView.h"
 
+@interface MyView ()
+
+@property (weak, nonatomic) UIImageView *myView;
+
+@end
+
 @implementation MyView
 
 - (id)initWithFrame:(CGRect)frame
@@ -95,6 +101,19 @@
     imageView.image = image;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:imageView];
+    self.myView = imageView;
+}
+
+- (void)loadImageAtURL:(NSURL *)url
+{
+
+}
+
+- (void)setImage:(UIImage *)image
+{
+    NSAssert([NSThread currentThread].isMainThread, @"this has to be called on the main thread");
+    
+    self.myView.image = image;
 }
 
 /*
