@@ -87,6 +87,18 @@
     [self addSubview:imageView];
     self.imageView = imageView;
     
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        
+//            // load from internet, create image
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            // set image to imageView
+//        });
+//        
+//    });
+    
     NSURL *url = [NSURL URLWithString:@"http://rajce.hippotaps.com/tomato.jpg"];
     [self performSelectorInBackground:@selector(loadImageAtURL:) withObject:url];
 }
