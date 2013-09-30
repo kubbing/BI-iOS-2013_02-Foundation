@@ -30,9 +30,15 @@
     self.backgroundColor = [UIColor whiteColor];
     
     NSString *string1 = @"prvni object";
-    NSArray *array = [NSArray arrayWithObject:string1];
+    NSArray *array = @[
+                       string1,
+                       @"dalsi object",
+                       @"jeste jeden"];
+    
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:array];
-    [mutableArray addObject:@"druhy Object"];
+    [mutableArray addObject:@"ctvrty Object"];
+    
+//    id object = @[ @"", @(7), @[], @[] ];
     
     CGFloat offset = 8;
     for (NSString *string in mutableArray) {
