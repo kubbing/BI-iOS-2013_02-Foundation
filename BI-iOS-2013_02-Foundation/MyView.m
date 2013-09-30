@@ -116,6 +116,12 @@
     NSParameterAssert(image);
     NSAssert([NSThread currentThread].isMainThread, @"this has to be called on the main thread");
     
+    self.myView.alpha = 0;
+    __weak typeof(self) blockSelf = self;
+    [UIView animateWithDuration:1 animations:^{
+        blockSelf.myView.alpha = 1;
+    }];
+    
     self.myView.image = image;
 }
 
