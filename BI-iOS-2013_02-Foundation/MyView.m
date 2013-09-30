@@ -27,7 +27,10 @@
 
 - (void)setup
 {
-    self.backgroundColor = [UIColor greenColor];
+    self.backgroundColor = [UIColor whiteColor];
+    
+    NSString *string1 = @"prvni object";
+    NSArray *array = [NSArray arrayWithObject:string1];
 }
 
 /*
