@@ -18,6 +18,37 @@
 
 @implementation Solver
 
+@synthesize results = _results;
+
+- (NSArray *)results
+{
+    double a, b, c;
+    a = [self.a doubleValue];
+    b = [self.b doubleValue];
+    c = [self.c doubleValue];
+    
+    double d = (b * b) - (4 * a * c);
+    if (d < 0) {
+        _results = @[];
+    }
+    else if (d == 0) {
+        NSNumber *res = @((-b) / (2.0 * a));
+        _results = @[res];
+    }
+    else {
+        NSNumber *res1 = @((-b + sqrt(d)) / (2.0 * a));
+        NSNumber *res2 = @((-b - sqrt(d)) / (2.0 * a));
+        _results = @[res1, res2];
+    }
+    
+    return _results;
+}
+
+- (void)setResults:(NSArray *)results
+{
+    _results = results;
+}
+
 - (void)dealloc
 {
     ;
