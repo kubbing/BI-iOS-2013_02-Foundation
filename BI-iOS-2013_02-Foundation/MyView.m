@@ -29,6 +29,10 @@
 - (void)setup
 {
     NSLog(@"awesome setup");
+    
+    NSArray *array = [NSArray arrayWithObject:@"single object"];
+    
+
 }
 
 
