@@ -89,16 +89,13 @@
      */
     
     NSURL *url = [NSURL URLWithString:@"http://spinach.hippotaps.com/spinach.jpg"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    
-    UIImage *image = [UIImage imageWithData:data scale:1.0]; // [UIScreen mainScreen].scale
+    [self loadImageAtURL:url];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:
     CGRectMake(0,
                offset,
                CGRectGetWidth(self.bounds),
                CGRectGetWidth(self.bounds))];
-    imageView.image = image;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:imageView];
     self.myView = imageView;
@@ -106,7 +103,11 @@
 
 - (void)loadImageAtURL:(NSURL *)url
 {
-
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    UIImage *image = [UIImage imageWithData:data scale:1.0]; // [UIScreen mainScreen].scale
+    
+    [self setImage:image];
 }
 
 - (void)setImage:(UIImage *)image
