@@ -66,7 +66,14 @@
     NSMutableDictionary *mutableDict = [dictionary mutableCopy];
     [mutableDict setObject:@"XXX" forKey:@"ctvrty"];
     
-    
+    for (NSString *string in mutableDict.allKeys) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = CGRectMake(8, offset, CGRectGetWidth(self.bounds) - 16, 44);
+        [button setTitle:mutableDict[string] forState:UIControlStateNormal];
+        [self addSubview:button];
+        
+        offset += 44;
+    }
 }
 
 /*
