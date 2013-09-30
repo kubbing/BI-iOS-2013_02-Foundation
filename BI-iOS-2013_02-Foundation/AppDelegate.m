@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+#include "MyView.h"
 
 @implementation AppDelegate
 
@@ -18,7 +19,8 @@
     self.window.backgroundColor = [UIColor redColor];
     [self.window makeKeyAndVisible];
     
-    
+    MyView *myView = [[MyView alloc] initWithFrame:self.window.bounds];
+    [self.window addSubview:myView];
     
     return YES;
 }
