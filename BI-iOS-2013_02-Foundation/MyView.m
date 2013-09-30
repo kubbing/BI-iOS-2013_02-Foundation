@@ -29,6 +29,10 @@
 {
     self.backgroundColor = [UIColor whiteColor];
     
+    /*
+     Array
+     */
+    
     NSString *string1 = @"prvni object";
     NSArray *array = @[
                        string1,
@@ -49,6 +53,20 @@
         
         offset += 44;
     }
+    
+    /*
+     Dictionary
+     */
+    
+    NSDictionary *dictionary
+    = @{@"prvni" : @"1. hodnota",
+        @"druhy" : @"2. hodnota",
+        @"treti" : @"dalsi"
+        };
+    NSMutableDictionary *mutableDict = [dictionary mutableCopy];
+    [mutableDict setObject:@"XXX" forKey:@"ctvrty"];
+    
+    
 }
 
 /*
