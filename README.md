@@ -15,3 +15,5 @@
 - objective-c and foundation basics
 - NSArray, NSString, NSNumber, NSDictionary, NSSet…
 - Mutable thing
+- URL, background loading
+- solver :P
