@@ -29,8 +29,13 @@
 - (void)setup
 {
     NSLog(@"awesome setup");
+
+    NSString *string1 = @"prvni object";
+    NSString *string2 = @"druhy object";
     
-    NSArray *array = [NSArray arrayWithObject:@"single object"];
+    NSArray *array = @[ string1, string2 ];
+
+    
     
 
 }
