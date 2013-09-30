@@ -8,6 +8,8 @@
 
 #import "MyView.h"
 
+#import "Solver.h"
+
 @interface MyView ()
 
 @property (weak, nonatomic) UIImageView *myView;
