@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1709304917F9484200B8D0C2 /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1709304817F9484200B8D0C2 /* MyView.m */; };
 		174F868917F8CB2D00680E09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174F868817F8CB2D00680E09 /* Foundation.framework */; };
 		174F868B17F8CB2D00680E09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174F868A17F8CB2D00680E09 /* CoreGraphics.framework */; };
 		174F868D17F8CB2D00680E09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174F868C17F8CB2D00680E09 /* UIKit.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1709304717F9484200B8D0C2 /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
+		1709304817F9484200B8D0C2 /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
 		174F868517F8CB2D00680E09 /* BI-iOS-2013_02-Foundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BI-iOS-2013_02-Foundation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174F868817F8CB2D00680E09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		174F868A17F8CB2D00680E09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +114,8 @@
 				174F869817F8CB2D00680E09 /* AppDelegate.m */,
 				174F869A17F8CB2D00680E09 /* Images.xcassets */,
 				174F868F17F8CB2D00680E09 /* Supporting Files */,
+				1709304717F9484200B8D0C2 /* MyView.h */,
+				1709304817F9484200B8D0C2 /* MyView.m */,
 			);
 			path = "BI-iOS-2013_02-Foundation";
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			files = (
 				174F869917F8CB2D00680E09 /* AppDelegate.m in Sources */,
 				174F869517F8CB2D00680E09 /* main.m in Sources */,
+				1709304917F9484200B8D0C2 /* MyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +447,7 @@
 				174F86B317F8CB2D00680E09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		174F86B417F8CB2D00680E09 /* Build configuration list for PBXNativeTarget "BI-iOS-2013_02-FoundationTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +456,7 @@
 				174F86B617F8CB2D00680E09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
