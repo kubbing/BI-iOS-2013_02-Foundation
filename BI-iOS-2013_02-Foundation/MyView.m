@@ -66,7 +66,12 @@
     NSMutableDictionary *mutableDict = [dictionary mutableCopy];
     [mutableDict setObject:@"XXX" forKey:@"ctvrty"];
     
-    for (NSString *string in mutableDict.allKeys) {
+    NSArray *sortedArray =
+    [mutableDict.allKeys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return NSOrderedDescending;
+    }];
+
+    for (NSString *string in sortedArray) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.frame = CGRectMake(8, offset, CGRectGetWidth(self.bounds) - 16, 44);
         [button setTitle:mutableDict[string] forState:UIControlStateNormal];
@@ -74,6 +79,10 @@
         
         offset += 44;
     }
+    
+    /*
+     URL
+     */
 }
 
 /*
