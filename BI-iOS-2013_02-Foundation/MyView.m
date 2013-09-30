@@ -8,6 +8,12 @@
 
 #import "MyView.h"
 
+@interface MyView ()
+
+@property (weak, nonatomic) UIImageView *imageView;
+
+@end
+
 @implementation MyView
 
 - (id)initWithFrame:(CGRect)frame
@@ -74,18 +80,33 @@
         offset += CGRectGetHeight(button.bounds);
     }
     
+    UIImageView *imageView =
+    [[UIImageView alloc] initWithFrame:CGRectMake(0, offset, CGRectGetWidth(self.bounds), CGRectGetWidth(self.bounds))];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [self addSubview:imageView];
+    self.imageView = imageView;
+    
     NSURL *url = [NSURL URLWithString:@"http://rajce.hippotaps.com/tomato.jpg"];
+    [self performSelectorInBackground:@selector(loadImageAtURL:) withObject:url];
+}
+
+- (void)loadImageAtURL:(NSURL *)url
+{
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data
                                       scale:1.0];
     
-    UIImageView *imageView =
-    [[UIImageView alloc] initWithFrame:CGRectMake(0, offset, CGRectGetWidth(self.bounds), CGRectGetWidth(self.bounds))];
-    imageView.image = image;
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    [self addSubview:imageView];
+    [self performSelectorOnMainThread:@selector(setImage:)
+                           withObject:image
+                        waitUntilDone:NO];
+}
 
+- (void)setImage:(UIImage *)image
+{
+    NSAssert([[NSThread currentThread] isMainThread], @"this has to be called in main thread");
+    
+    self.imageView.image = image;
 }
 
 
