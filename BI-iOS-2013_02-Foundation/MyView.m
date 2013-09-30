@@ -87,10 +87,7 @@
     /*
      URL
      */
-    
-    NSURL *url = [NSURL URLWithString:@"http://spinach.hippotaps.com/spinach.jpg"];
-    [self loadImageAtURL:url];
-    
+
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:
     CGRectMake(0,
                offset,
@@ -99,6 +96,10 @@
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:imageView];
     self.myView = imageView;
+    
+    NSURL *url = [NSURL URLWithString:@"http://spinach.hippotaps.com/spinach.jpg"];
+    
+    [self performSelectorInBackground:@selector(loadImageAtURL:) withObject:url];
 }
 
 - (void)loadImageAtURL:(NSURL *)url
@@ -107,11 +108,12 @@
     
     UIImage *image = [UIImage imageWithData:data scale:1.0]; // [UIScreen mainScreen].scale
     
-    [self setImage:image];
+    [self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
 }
 
 - (void)setImage:(UIImage *)image
 {
+    NSParameterAssert(image);
     NSAssert([NSThread currentThread].isMainThread, @"this has to be called on the main thread");
     
     self.myView.image = image;
