@@ -15,10 +15,23 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor blueColor];
+        [self setup];
     }
     return self;
 }
+
+- (void)awakeFromNib
+{
+    // kdyz se vzbudite z interface builderu
+    [self setup];
+}
+
+- (void)setup
+{
+    NSLog(@"awesome setup");
+}
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
