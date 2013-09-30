@@ -83,6 +83,9 @@
     /*
      URL
      */
+    
+    NSURL *url = [NSURL URLWithString:@"http://spinach.hippotaps.com/spinach.jpg"];
+    
 }
 
 /*
