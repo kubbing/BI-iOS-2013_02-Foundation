@@ -33,6 +33,10 @@
     NSString *string1 = @"prvni object";
     NSString *string2 = @"druhy object";
     
+    /*
+     Array
+     */
+    
     NSArray *array = @[ string1, string2 ];
 
     CGFloat offset = 8;
@@ -45,7 +49,30 @@
         offset += CGRectGetHeight(label.bounds) + 8;
     }
     
+    /*
+     Dictionary
+     */
+    
+    NSDictionary *dictionary;
+    dictionary = @{
+                   [@(1) description] : string1,
+                   [@(2) description] : string2 };
+    
+    NSArray *keyArray = dictionary.allKeys;
+    NSArray *sortedArray =
+    [keyArray sortedArrayWithOptions:0
+                     usingComparator:^NSComparisonResult(id obj1, id obj2) {
+                         return NSOrderedAscending;
+                     }];
 
+    for (NSString *strig in sortedArray) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = CGRectMake(0, offset, CGRectGetWidth(self.bounds), 44);
+        [button setTitle:strig forState:UIControlStateNormal];
+        [self addSubview:button];
+        
+        offset += CGRectGetHeight(button.bounds);
+    }
 }
 
 
