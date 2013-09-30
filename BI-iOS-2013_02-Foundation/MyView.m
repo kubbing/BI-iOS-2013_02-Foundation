@@ -7,6 +7,7 @@
 //
 
 #import "MyView.h"
+#import "Solver.h"
 
 @interface MyView ()
 
@@ -106,6 +107,15 @@
     
     NSURL *url = [NSURL URLWithString:@"http://rajce.hippotaps.com/tomato.jpg"];
     [self performSelectorInBackground:@selector(loadImageAtURL:) withObject:url];
+    
+    /*
+     Solver
+     */
+    
+    Solver *solver = [[Solver alloc] initWithA:@(1)
+                                             B:@(-5)
+                                             C:@(0)];
+    NSLog(@"%@", solver.results);
 }
 
 - (void)loadImageAtURL:(NSURL *)url
