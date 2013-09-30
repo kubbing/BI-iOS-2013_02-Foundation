@@ -31,14 +31,17 @@
     
     NSString *string1 = @"prvni object";
     NSArray *array = [NSArray arrayWithObject:string1];
-    
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:array];
+    [mutableArray addObject:@"druhy Object"];
     
     CGFloat offset = 8;
-    for (NSString *string in array) {
+    for (NSString *string in mutableArray) {
         UILabel *label = [[UILabel alloc] init];
         label.frame = CGRectMake(8, offset, CGRectGetWidth(self.bounds) - 16, 44);
         label.text = string;
         [self addSubview:label];
+        
+        offset += 44;
     }
 }
 
