@@ -8,16 +8,19 @@
 
 #import "AppDelegate.h"
 
+#import "MyView.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor yellowColor];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    
+    MyView *myView = [[MyView alloc] initWithFrame:self.window.bounds];
+    [self.window addSubview:myView];
     
     return YES;
 }
