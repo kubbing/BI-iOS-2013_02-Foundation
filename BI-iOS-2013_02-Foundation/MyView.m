@@ -35,7 +35,15 @@
     
     NSArray *array = @[ string1, string2 ];
 
-    
+    CGFloat offset = 8;
+    for (NSString *str in array) {
+        ;
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, offset, CGRectGetWidth(self.bounds), 44)];
+        label.text = str;
+        [self addSubview:label];
+        
+        offset += CGRectGetHeight(label.bounds) + 8;
+    }
     
 
 }
