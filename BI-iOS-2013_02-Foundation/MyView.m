@@ -65,14 +65,27 @@
                          return NSOrderedAscending;
                      }];
 
-    for (NSString *strig in sortedArray) {
+    for (NSString *string in sortedArray) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.frame = CGRectMake(0, offset, CGRectGetWidth(self.bounds), 44);
-        [button setTitle:strig forState:UIControlStateNormal];
+        [button setTitle:string forState:UIControlStateNormal];
         [self addSubview:button];
         
         offset += CGRectGetHeight(button.bounds);
     }
+    
+    NSURL *url = [NSURL URLWithString:@"http://rajce.hippotaps.com/tomato.jpg"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data
+                                      scale:1.0];
+    
+    UIImageView *imageView =
+    [[UIImageView alloc] initWithFrame:CGRectMake(0, offset, CGRectGetWidth(self.bounds), CGRectGetWidth(self.bounds))];
+    imageView.image = image;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [self addSubview:imageView];
+
 }
 
 
