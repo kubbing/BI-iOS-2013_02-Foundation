@@ -17,8 +17,10 @@
 @end
 
 @implementation Solver
-{
 
+- (void)dealloc
+{
+    ;
 }
 
 - (instancetype)init
